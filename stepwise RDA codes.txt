@@ -4,14 +4,14 @@ plot(dune.Manure)
 summary (dune.Manure)
 RsquareAdj(dune.Manure)
 anova(dune.Manure, perm.max=499) 
-anova(dune.Manure, perm.max=999) # Yo hago las dos permutaciones primero arriba a 499 y luego a 999 
+anova(dune.Manure, perm.max=999) 
 anova(dune.Manure, by="axis")
 anova(dune.Manure, by="margin")
 vifstep(ambien, th=5)
 
 mod0 <- rda(pigment ~ 1, ambien)
 mod1 <- rda(pigment ~ ., ambien)
-Nombre<-ordiR2step(mod0, scope = formula(mod1), direction="forward", perm.max = 200) # esta es en direccion forward
+Nombre<-ordiR2step(mod0, scope = formula(mod1), direction="forward", perm.max = 200) 
 anova(Nombre, by="axis")
 anova(Nombre, by="margin")
 RsquareAdj(Nombre)
@@ -19,14 +19,14 @@ RsquareAdj(Nombre)
 
 mod0 <- rda(pigment ~ 1, ambien)
 mod1 <- rda(pigment ~ ., ambien)
-Nombre<-ordiR2step(mod0, scope = formula(mod1), direction="backward", perm.max = 200) # esta es en direccion forward
+Nombre<-ordiR2step(mod0, scope = formula(mod1), direction="backward", perm.max = 200) 
 anova(Nombre, by="axis")
 anova(Nombre, by="margin")
 RsquareAdj(Nombre)
 
 mod0 <- rda(pigment ~ 1, ambien)
 mod1 <- rda(pigment ~ ., ambien)
-Nombre<-ordiR2step(mod0, mod1, perm.max = 200) # y esta es en ambas direcciones, asi que ejecuta las dos primero la de arriba y luego ésta
+Nombre<-ordiR2step(mod0, mod1, perm.max = 200) 
 anova(Nombre, by="axis")
 anova(Nombre, by="margin")
 RsquareAdj(Nombre)
